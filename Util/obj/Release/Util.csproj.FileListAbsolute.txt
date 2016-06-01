@@ -1,0 +1,16 @@
+F:\GameTools\Util\bin\Release\Util.dll
+F:\GameTools\Util\bin\Release\Util.pdb
+F:\GameTools\Util\obj\Release\FengNiao.GameTools.Util.BaseForm.resources
+F:\GameTools\Util\obj\Release\FengNiao.GameTools.Util.CustomButton.resources
+F:\GameTools\Util\obj\Release\Util.Properties.Resource.resources
+F:\GameTools\Util\obj\Release\Util.csproj.GenerateResource.Cache
+F:\GameTools\Util\obj\Release\Util.dll
+F:\GameTools\Util\obj\Release\Util.pdb
+C:\Users\liush\Desktop\GMTools\Util\bin\Release\Util.dll
+C:\Users\liush\Desktop\GMTools\Util\bin\Release\Util.pdb
+C:\Users\liush\Desktop\GMTools\Util\obj\Release\FengNiao.GameTools.Util.BaseForm.resources
+C:\Users\liush\Desktop\GMTools\Util\obj\Release\FengNiao.GameTools.Util.CustomButton.resources
+C:\Users\liush\Desktop\GMTools\Util\obj\Release\Util.Properties.Resource.resources
+C:\Users\liush\Desktop\GMTools\Util\obj\Release\Util.csproj.GenerateResource.Cache
+C:\Users\liush\Desktop\GMTools\Util\obj\Release\Util.dll
+C:\Users\liush\Desktop\GMTools\Util\obj\Release\Util.pdb

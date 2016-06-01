@@ -1,0 +1,225 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Web;
+using FengNiao.GameToolsCommon;
+using System.Text;
+using GameToolsCommon;
+
+namespace GameToolsHttpService
+{
+    /// <summary>
+    /// Login 的摘要说明
+    /// </summary>
+    public class GameInterface : IHttpHandler
+    {
+        public void ProcessRequest(HttpContext context)
+        {
+            string strMethod = context.Request["Method"];
+            string strModule = context.Request["Module"];
+            ResultModel requestResult = null;
+            string strResult = string.Empty;
+            int iModule = int.TryParse(strModule, out iModule) ? iModule : -1;
+            if (iModule == -1)
+            {
+                requestResult = new ResultModel();
+                requestResult.Content = "接口调用错误";
+                requestResult.IsSuccess = false;
+            }
+            int iMethod = int.TryParse(strMethod, out iMethod) ? iMethod : -1;
+            HttpMethodType methodType =(HttpMethodType)iMethod;
+            if (methodType == HttpMethodType.Testing)
+            {
+                requestResult = new ResultModel();
+                requestResult.Content = "接口测试成功";
+                requestResult.IsSuccess = true;
+                strResult = FengNiao.GameTools.Json.Serialize.ConvertObjectToJson<ResultModel>(requestResult);
+                context.Response.Write(strResult);
+                return;
+            }
+            ProcessRequestBase processRequest = GetRequestInstance((HttpModuleType)iModule);
+            if (processRequest != null)
+            {
+                switch (methodType)
+                {
+                    case HttpMethodType.Add:
+                        strResult = processRequest.Add(context);
+                        break;
+                    case HttpMethodType.AddAll:
+                        if (processRequest is ActivityConfigModule)
+                        {
+                            strResult = ((ActivityConfigModule)processRequest).AddAll(context);
+                        }
+/***************************************************************************************************************************************/
+                        //else if (processRequest is LoginRewardsConfig)
+                        //{
+                        //    strResult = ((LoginRewardsConfig)processRequest).AddAll(context);
+                        //}
+
+/***************************************************************************************************************************************/
+
+                        else
+                        {
+                            requestResult = new ResultModel();
+                            requestResult.Content = "不支持的method类型";
+                            requestResult.IsSuccess = false;
+                        }
+                        break;
+                    case HttpMethodType.Remove:
+                        strResult = processRequest.Remove(context);
+                        break;
+                    case HttpMethodType.GetModel:
+                        break;
+                    case HttpMethodType.GetList:
+                        strResult = processRequest.GetList(context);
+                        break;
+                    case HttpMethodType.Update:
+                        strResult = processRequest.Update(context);
+                        break;
+                    case HttpMethodType.GetCount:
+                        strResult = processRequest.GetCount(context);
+                        break;
+                    case HttpMethodType.Login:
+                        if (processRequest is UserModule)
+                        {
+                            strResult = ((UserModule)processRequest).Login(context);
+                        }
+                        else
+                        {
+                            requestResult = new ResultModel();
+                            requestResult.Content = "不支持的method类型";
+                            requestResult.IsSuccess = false;
+                        }
+                        break;
+                    case HttpMethodType.ChangePassword:
+                        if (processRequest is UserModule)
+                        {
+                            strResult = ((UserModule)processRequest).ChangePassword(context);
+                        }
+                        else
+                        {
+                            requestResult = new ResultModel();
+                            requestResult.Content = "不支持的method类型";
+                            requestResult.IsSuccess = false;
+                        }
+                        break;
+                    case HttpMethodType.Quit:
+                        if (processRequest is UserModule)
+                        {
+                            strResult = ((UserModule)processRequest).Quit(context);
+                        }
+                        else
+                        {
+                            requestResult = new ResultModel();
+                            requestResult.Content = "不支持的method类型";
+                            requestResult.IsSuccess = false;
+                        }
+                        break;
+                    case HttpMethodType.Testing:
+                        break;
+                    case HttpMethodType.Transfer:
+                        strResult = ((GameModule)processRequest).Transfer(context);
+                        break;
+                    case HttpMethodType.SendMail:
+                        strResult = ((GameModule)processRequest).SendMail(context);
+                        break;
+                    default:
+                        requestResult = new ResultModel();
+                        requestResult.Content = "不支持的method类型";
+                        requestResult.IsSuccess = false;
+                        break;
+                }
+            }
+            else
+            {
+                requestResult = new ResultModel();
+                requestResult.Content = "不支持的module类型";
+                requestResult.IsSuccess = false;
+            }
+            context.Response.ContentEncoding = Encoding.UTF8;
+            context.Response.ContentType = "text/plain";
+            if(requestResult != null)
+            {
+                strResult =  FengNiao.GameTools.Json.Serialize.ConvertObjectToJson<ResultModel>(requestResult);
+            }
+            context.Response.Write(strResult);
+        }
+
+        public ProcessRequestBase GetRequestInstance(HttpModuleType moduleType)
+        {
+            switch (moduleType)
+            {
+                case HttpModuleType.ListServer:
+                    return new ProcessRequestBase("tbl_listserver");
+                case HttpModuleType.Notice:
+                    return new ProcessRequestBase("tbl_notice");
+                case HttpModuleType.Package:
+                    return new ProcessRequestBase("tbl_package");
+                case HttpModuleType.Package_Server:
+                    return new ProcessRequestBase("tbl_package_server");
+                case HttpModuleType.Package_Upgrade:
+                    return new ProcessRequestBase("tbl_package_upgrade");
+                case HttpModuleType.Resource_Upgrade:
+                    return new ProcessRequestBase("tbl_resource_upgrade");
+                case HttpModuleType.Server:
+                    return new ProcessRequestBase("tbl_server");
+                case HttpModuleType.Server_Group:
+                    return new ProcessRequestBase("tbl_server_group");
+                case HttpModuleType.Template:
+                    return new ProcessRequestBase("tbl_template");
+                case HttpModuleType.TesterDevice:
+                    return new ProcessRequestBase("tbl_testerdevice");
+                case HttpModuleType.GiftCode:
+                    return new GiftCodeModule("tbl_gift_code");
+                case HttpModuleType.GiftPackage:
+                    return new ProcessRequestBase("tbl_gift_package");
+                case HttpModuleType.Item:
+                    return new ItemModule("tbl_item");
+                case HttpModuleType.User:
+                    return new UserModule("tbl_user");
+                case HttpModuleType.Transfer:
+                    return new GameModule("");
+                case HttpModuleType.Mail:
+                    return new ProcessRequestBase("tbl_mail");
+                case HttpModuleType.Activity:
+                    return new ActivityModule("tbl_activity");
+                case HttpModuleType.Activity_Config:
+                    return new ActivityConfigModule("tbl_activity_config");
+                case HttpModuleType.Notice_Config:
+                    return new NoticeConfigModule("tbl_notice_config");
+                case HttpModuleType.Recommend:
+                    return new RecommendModule("tbl_recommend");
+                case HttpModuleType.First_Recharge:
+                    return new ProcessRequestBase("tbl_first_recharge");
+                case HttpModuleType.FirstRecharge_Config:
+                    return new FirstRechargeConfigModule("tbl_first_recharge_config");
+                case HttpModuleType.LoginRewards_Config:
+                    return new LoginRewardsConfig("tbl_login_rewards_config");
+                case HttpModuleType.SuccessRewards_Config:
+                    return new SucessionConfigModule("tbl_sucession_rewards_config");
+                case HttpModuleType.CountsConfig:
+                    return new CountsConfigModule("tbl_counts_config");
+                case HttpModuleType.ProtoCount:
+                    return new ProtoCountModule("tbl_proto_cout");
+                case HttpModuleType.PushNotice:
+                    return new PushNoticeModule("");
+    
+            }
+            return null;
+        }
+
+        public void ResultToClient(HttpContext context, string strContet)
+        {
+            context.Response.ContentType = "text/plain";
+            context.Response.Write(strContet);
+        }
+
+        public bool IsReusable
+        {
+            get
+            {
+                return true;
+            }
+        }
+    }
+
+}

@@ -1,0 +1,16 @@
+F:\GameTools\DAL\bin\Release\FengNiao.GMTools.Database.DAL.dll
+F:\GameTools\DAL\bin\Release\FengNiao.GMTools.Database.DBUtility.dll
+F:\GameTools\DAL\bin\Release\FengNiao.GMTools.Database.Model.dll
+F:\GameTools\DAL\bin\Release\Maticsoft.Common.dll
+F:\GameTools\DAL\bin\Release\MySql.Data.dll
+F:\GameTools\DAL\bin\Release\System.Data.SQLite.dll
+F:\GameTools\DAL\obj\Release\DAL.csprojResolveAssemblyReference.cache
+F:\GameTools\DAL\obj\Release\FengNiao.GMTools.Database.DAL.dll
+C:\Users\liush\Desktop\GMTools\DAL\bin\Release\FengNiao.GMTools.Database.DAL.dll
+C:\Users\liush\Desktop\GMTools\DAL\bin\Release\FengNiao.GMTools.Database.DBUtility.dll
+C:\Users\liush\Desktop\GMTools\DAL\bin\Release\FengNiao.GMTools.Database.Model.dll
+C:\Users\liush\Desktop\GMTools\DAL\bin\Release\Maticsoft.Common.dll
+C:\Users\liush\Desktop\GMTools\DAL\bin\Release\MySql.Data.dll
+C:\Users\liush\Desktop\GMTools\DAL\bin\Release\System.Data.SQLite.dll
+C:\Users\liush\Desktop\GMTools\DAL\obj\Release\DAL.csprojResolveAssemblyReference.cache
+C:\Users\liush\Desktop\GMTools\DAL\obj\Release\FengNiao.GMTools.Database.DAL.dll

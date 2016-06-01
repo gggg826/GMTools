@@ -1,0 +1,516 @@
+﻿/**  版本信息模板在安装目录下，可自行修改。
+* tbl_gift_package.cs
+*
+* 功 能： N/A
+* 类 名： tbl_gift_package
+*
+* Ver    变更日期             负责人  变更内容
+* ───────────────────────────────────
+* V0.01  2015/6/26 14:32:57   N/A    初版
+*
+* Copyright (c) 2012 Maticsoft Corporation. All rights reserved.
+*┌──────────────────────────────────┐
+*│　此技术信息为本公司机密信息，未经本公司书面同意禁止向第三方披露．　│
+*│　版权所有：动软卓越（北京）科技有限公司　　　　　　　　　　　　　　│
+*└──────────────────────────────────┘
+*/
+using System;
+using System.Data;
+using System.Text;
+using MySql.Data.MySqlClient;
+using Maticsoft.DBUtility;//Please add references
+namespace FengNiao.GMTools.Database.DAL
+{
+	/// <summary>
+	/// 数据访问类:tbl_gift_package
+	/// </summary>
+	public partial class tbl_gift_package
+	{
+		public tbl_gift_package()
+		{}
+		#region  BasicMethod
+
+		/// <summary>
+		/// 得到最大ID
+		/// </summary>
+		public int GetMaxId()
+		{
+		return DbHelperMySQL.GetMaxID("fld_id", "tbl_gift_package"); 
+		}
+
+		/// <summary>
+		/// 是否存在该记录
+		/// </summary>
+		public bool Exists(int fld_id)
+		{
+			StringBuilder strSql=new StringBuilder();
+			strSql.Append("select count(1) from tbl_gift_package");
+			strSql.Append(" where fld_id=@fld_id ");
+			MySqlParameter[] parameters = {
+					new MySqlParameter("@fld_id", MySqlDbType.Int32,11)			};
+			parameters[0].Value = fld_id;
+
+			return DbHelperMySQL.Exists(strSql.ToString(),parameters);
+		}
+
+
+		/// <summary>
+		/// 增加一条数据
+		/// </summary>
+		public bool Add(FengNiao.GMTools.Database.Model.tbl_gift_package model)
+		{
+			StringBuilder strSql=new StringBuilder();
+			strSql.Append("insert into tbl_gift_package(");
+			strSql.Append("fld_lock_device,fld_title,fld_content,fld_itemid1,fld_itemcount1,fld_itemid2,fld_itemcount2,fld_itemid3,fld_itemcount3,fld_itemid4,fld_itemcount4,fld_itemid5,fld_itemcount5,fld_itemid6,fld_itemcount6,fld_itemid7,fld_itemcount7,fld_itemid8,fld_itemcount8,fld_itemid9,fld_itemcount9,fld_itemid10,fld_itemcount10,fld_desc,fld_lastupdate,fld_deleted)");
+			strSql.Append(" values (");
+			strSql.Append("@fld_lock_device,@fld_title,@fld_content,@fld_itemid1,@fld_itemcount1,@fld_itemid2,@fld_itemcount2,@fld_itemid3,@fld_itemcount3,@fld_itemid4,@fld_itemcount4,@fld_itemid5,@fld_itemcount5,@fld_itemid6,@fld_itemcount6,@fld_itemid7,@fld_itemcount7,@fld_itemid8,@fld_itemcount8,@fld_itemid9,@fld_itemcount9,@fld_itemid10,@fld_itemcount10,@fld_desc,@fld_lastupdate,@fld_deleted)");
+			MySqlParameter[] parameters = {
+					//new MySqlParameter("@fld_id", MySqlDbType.Int32,11),
+					new MySqlParameter("@fld_lock_device", MySqlDbType.Int32,11),
+					new MySqlParameter("@fld_title", MySqlDbType.VarChar,50),
+					new MySqlParameter("@fld_content", MySqlDbType.VarChar,255),
+					new MySqlParameter("@fld_itemid1", MySqlDbType.Int32,11),
+					new MySqlParameter("@fld_itemcount1", MySqlDbType.Int32,11),
+					new MySqlParameter("@fld_itemid2", MySqlDbType.Int32,11),
+					new MySqlParameter("@fld_itemcount2", MySqlDbType.Int32,11),
+					new MySqlParameter("@fld_itemid3", MySqlDbType.Int32,11),
+					new MySqlParameter("@fld_itemcount3", MySqlDbType.Int32,11),
+					new MySqlParameter("@fld_itemid4", MySqlDbType.Int32,11),
+					new MySqlParameter("@fld_itemcount4", MySqlDbType.Int32,11),
+					new MySqlParameter("@fld_itemid5", MySqlDbType.Int32,11),
+					new MySqlParameter("@fld_itemcount5", MySqlDbType.Int32,11),
+					new MySqlParameter("@fld_itemid6", MySqlDbType.Int32,11),
+					new MySqlParameter("@fld_itemcount6", MySqlDbType.Int32,11),
+					new MySqlParameter("@fld_itemid7", MySqlDbType.Int32,11),
+					new MySqlParameter("@fld_itemcount7", MySqlDbType.Int32,11),
+					new MySqlParameter("@fld_itemid8", MySqlDbType.Int32,11),
+					new MySqlParameter("@fld_itemcount8", MySqlDbType.Int32,11),
+					new MySqlParameter("@fld_itemid9", MySqlDbType.Int32,11),
+					new MySqlParameter("@fld_itemcount9", MySqlDbType.Int32,11),
+					new MySqlParameter("@fld_itemid10", MySqlDbType.Int32,11),
+					new MySqlParameter("@fld_itemcount10", MySqlDbType.Int32,11),
+					new MySqlParameter("@fld_desc", MySqlDbType.VarChar,255),
+					new MySqlParameter("@fld_lastupdate", MySqlDbType.DateTime),
+					new MySqlParameter("@fld_deleted", MySqlDbType.Int32,11)};
+			//parameters[0].Value = model.fld_id;
+			parameters[0].Value = model.fld_lock_device;
+			parameters[1].Value = model.fld_title;
+			parameters[2].Value = model.fld_content;
+			parameters[3].Value = model.fld_itemid1;
+			parameters[4].Value = model.fld_itemcount1;
+			parameters[5].Value = model.fld_itemid2;
+			parameters[6].Value = model.fld_itemcount2;
+			parameters[7].Value = model.fld_itemid3;
+			parameters[8].Value = model.fld_itemcount3;
+			parameters[9].Value = model.fld_itemid4;
+			parameters[10].Value = model.fld_itemcount4;
+			parameters[11].Value = model.fld_itemid5;
+			parameters[12].Value = model.fld_itemcount5;
+			parameters[13].Value = model.fld_itemid6;
+			parameters[14].Value = model.fld_itemcount6;
+			parameters[15].Value = model.fld_itemid7;
+			parameters[16].Value = model.fld_itemcount7;
+			parameters[17].Value = model.fld_itemid8;
+			parameters[18].Value = model.fld_itemcount8;
+			parameters[19].Value = model.fld_itemid9;
+			parameters[20].Value = model.fld_itemcount9;
+			parameters[21].Value = model.fld_itemid10;
+			parameters[22].Value = model.fld_itemcount10;
+			parameters[23].Value = model.fld_desc;
+			parameters[24].Value = model.fld_lastupdate;
+			parameters[25].Value = model.fld_deleted;
+
+			int rows=DbHelperMySQL.ExecuteSql(strSql.ToString(),parameters);
+			if (rows > 0)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+		/// <summary>
+		/// 更新一条数据
+		/// </summary>
+		public bool Update(FengNiao.GMTools.Database.Model.tbl_gift_package model)
+		{
+			StringBuilder strSql=new StringBuilder();
+			strSql.Append("update tbl_gift_package set ");
+			strSql.Append("fld_lock_device=@fld_lock_device,");
+			strSql.Append("fld_title=@fld_title,");
+			strSql.Append("fld_content=@fld_content,");
+			strSql.Append("fld_itemid1=@fld_itemid1,");
+			strSql.Append("fld_itemcount1=@fld_itemcount1,");
+			strSql.Append("fld_itemid2=@fld_itemid2,");
+			strSql.Append("fld_itemcount2=@fld_itemcount2,");
+			strSql.Append("fld_itemid3=@fld_itemid3,");
+			strSql.Append("fld_itemcount3=@fld_itemcount3,");
+			strSql.Append("fld_itemid4=@fld_itemid4,");
+			strSql.Append("fld_itemcount4=@fld_itemcount4,");
+			strSql.Append("fld_itemid5=@fld_itemid5,");
+			strSql.Append("fld_itemcount5=@fld_itemcount5,");
+			strSql.Append("fld_itemid6=@fld_itemid6,");
+			strSql.Append("fld_itemcount6=@fld_itemcount6,");
+			strSql.Append("fld_itemid7=@fld_itemid7,");
+			strSql.Append("fld_itemcount7=@fld_itemcount7,");
+			strSql.Append("fld_itemid8=@fld_itemid8,");
+			strSql.Append("fld_itemcount8=@fld_itemcount8,");
+			strSql.Append("fld_itemid9=@fld_itemid9,");
+			strSql.Append("fld_itemcount9=@fld_itemcount9,");
+			strSql.Append("fld_itemid10=@fld_itemid10,");
+			strSql.Append("fld_itemcount10=@fld_itemcount10,");
+			strSql.Append("fld_desc=@fld_desc,");
+			strSql.Append("fld_lastupdate=@fld_lastupdate,");
+			strSql.Append("fld_deleted=@fld_deleted");
+			strSql.Append(" where fld_id=@fld_id ");
+			MySqlParameter[] parameters = {
+					new MySqlParameter("@fld_lock_device", MySqlDbType.Int32,11),
+					new MySqlParameter("@fld_title", MySqlDbType.VarChar,50),
+					new MySqlParameter("@fld_content", MySqlDbType.VarChar,255),
+					new MySqlParameter("@fld_itemid1", MySqlDbType.Int32,11),
+					new MySqlParameter("@fld_itemcount1", MySqlDbType.Int32,11),
+					new MySqlParameter("@fld_itemid2", MySqlDbType.Int32,11),
+					new MySqlParameter("@fld_itemcount2", MySqlDbType.Int32,11),
+					new MySqlParameter("@fld_itemid3", MySqlDbType.Int32,11),
+					new MySqlParameter("@fld_itemcount3", MySqlDbType.Int32,11),
+					new MySqlParameter("@fld_itemid4", MySqlDbType.Int32,11),
+					new MySqlParameter("@fld_itemcount4", MySqlDbType.Int32,11),
+					new MySqlParameter("@fld_itemid5", MySqlDbType.Int32,11),
+					new MySqlParameter("@fld_itemcount5", MySqlDbType.Int32,11),
+					new MySqlParameter("@fld_itemid6", MySqlDbType.Int32,11),
+					new MySqlParameter("@fld_itemcount6", MySqlDbType.Int32,11),
+					new MySqlParameter("@fld_itemid7", MySqlDbType.Int32,11),
+					new MySqlParameter("@fld_itemcount7", MySqlDbType.Int32,11),
+					new MySqlParameter("@fld_itemid8", MySqlDbType.Int32,11),
+					new MySqlParameter("@fld_itemcount8", MySqlDbType.Int32,11),
+					new MySqlParameter("@fld_itemid9", MySqlDbType.Int32,11),
+					new MySqlParameter("@fld_itemcount9", MySqlDbType.Int32,11),
+					new MySqlParameter("@fld_itemid10", MySqlDbType.Int32,11),
+					new MySqlParameter("@fld_itemcount10", MySqlDbType.Int32,11),
+					new MySqlParameter("@fld_desc", MySqlDbType.VarChar,255),
+					new MySqlParameter("@fld_lastupdate", MySqlDbType.DateTime),
+					new MySqlParameter("@fld_deleted", MySqlDbType.Int32,11),
+					new MySqlParameter("@fld_id", MySqlDbType.Int32,11)};
+			parameters[0].Value = model.fld_lock_device;
+			parameters[1].Value = model.fld_title;
+			parameters[2].Value = model.fld_content;
+			parameters[3].Value = model.fld_itemid1;
+			parameters[4].Value = model.fld_itemcount1;
+			parameters[5].Value = model.fld_itemid2;
+			parameters[6].Value = model.fld_itemcount2;
+			parameters[7].Value = model.fld_itemid3;
+			parameters[8].Value = model.fld_itemcount3;
+			parameters[9].Value = model.fld_itemid4;
+			parameters[10].Value = model.fld_itemcount4;
+			parameters[11].Value = model.fld_itemid5;
+			parameters[12].Value = model.fld_itemcount5;
+			parameters[13].Value = model.fld_itemid6;
+			parameters[14].Value = model.fld_itemcount6;
+			parameters[15].Value = model.fld_itemid7;
+			parameters[16].Value = model.fld_itemcount7;
+			parameters[17].Value = model.fld_itemid8;
+			parameters[18].Value = model.fld_itemcount8;
+			parameters[19].Value = model.fld_itemid9;
+			parameters[20].Value = model.fld_itemcount9;
+			parameters[21].Value = model.fld_itemid10;
+			parameters[22].Value = model.fld_itemcount10;
+			parameters[23].Value = model.fld_desc;
+			parameters[24].Value = model.fld_lastupdate;
+			parameters[25].Value = model.fld_deleted;
+			parameters[26].Value = model.fld_id;
+
+			int rows=DbHelperMySQL.ExecuteSql(strSql.ToString(),parameters);
+			if (rows > 0)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+
+		/// <summary>
+		/// 删除一条数据
+		/// </summary>
+		public bool Delete(int fld_id)
+		{
+			
+			StringBuilder strSql=new StringBuilder();
+			strSql.Append("delete from tbl_gift_package ");
+			strSql.Append(" where fld_id=@fld_id ");
+			MySqlParameter[] parameters = {
+					new MySqlParameter("@fld_id", MySqlDbType.Int32,11)			};
+			parameters[0].Value = fld_id;
+
+			int rows=DbHelperMySQL.ExecuteSql(strSql.ToString(),parameters);
+			if (rows > 0)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+		/// <summary>
+		/// 批量删除数据
+		/// </summary>
+		public bool DeleteList(string fld_idlist )
+		{
+			StringBuilder strSql=new StringBuilder();
+			strSql.Append("delete from tbl_gift_package ");
+			strSql.Append(" where fld_id in ("+fld_idlist + ")  ");
+			int rows=DbHelperMySQL.ExecuteSql(strSql.ToString());
+			if (rows > 0)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+
+
+		/// <summary>
+		/// 得到一个对象实体
+		/// </summary>
+		public FengNiao.GMTools.Database.Model.tbl_gift_package GetModel(int fld_id)
+		{
+			
+			StringBuilder strSql=new StringBuilder();
+			strSql.Append("select fld_id,fld_lock_device,fld_title,fld_content,fld_itemid1,fld_itemcount1,fld_itemid2,fld_itemcount2,fld_itemid3,fld_itemcount3,fld_itemid4,fld_itemcount4,fld_itemid5,fld_itemcount5,fld_itemid6,fld_itemcount6,fld_itemid7,fld_itemcount7,fld_itemid8,fld_itemcount8,fld_itemid9,fld_itemcount9,fld_itemid10,fld_itemcount10,fld_desc,fld_lastupdate,fld_deleted from tbl_gift_package ");
+			strSql.Append(" where fld_id=@fld_id ");
+			MySqlParameter[] parameters = {
+					new MySqlParameter("@fld_id", MySqlDbType.Int32,11)			};
+			parameters[0].Value = fld_id;
+
+			FengNiao.GMTools.Database.Model.tbl_gift_package model=new FengNiao.GMTools.Database.Model.tbl_gift_package();
+			DataSet ds=DbHelperMySQL.Query(strSql.ToString(),parameters);
+			if(ds.Tables[0].Rows.Count>0)
+			{
+				return DataRowToModel(ds.Tables[0].Rows[0]);
+			}
+			else
+			{
+				return null;
+			}
+		}
+
+
+		/// <summary>
+		/// 得到一个对象实体
+		/// </summary>
+		public FengNiao.GMTools.Database.Model.tbl_gift_package DataRowToModel(DataRow row)
+		{
+			FengNiao.GMTools.Database.Model.tbl_gift_package model=new FengNiao.GMTools.Database.Model.tbl_gift_package();
+			if (row != null)
+			{
+				if(row["fld_id"]!=null && row["fld_id"].ToString()!="")
+				{
+					model.fld_id=int.Parse(row["fld_id"].ToString());
+				}
+				if(row["fld_lock_device"]!=null && row["fld_lock_device"].ToString()!="")
+				{
+					model.fld_lock_device=int.Parse(row["fld_lock_device"].ToString());
+				}
+				if(row["fld_title"]!=null)
+				{
+					model.fld_title=row["fld_title"].ToString();
+				}
+				if(row["fld_content"]!=null)
+				{
+					model.fld_content=row["fld_content"].ToString();
+				}
+				if(row["fld_itemid1"]!=null && row["fld_itemid1"].ToString()!="")
+				{
+					model.fld_itemid1=int.Parse(row["fld_itemid1"].ToString());
+				}
+				if(row["fld_itemcount1"]!=null && row["fld_itemcount1"].ToString()!="")
+				{
+					model.fld_itemcount1=int.Parse(row["fld_itemcount1"].ToString());
+				}
+				if(row["fld_itemid2"]!=null && row["fld_itemid2"].ToString()!="")
+				{
+					model.fld_itemid2=int.Parse(row["fld_itemid2"].ToString());
+				}
+				if(row["fld_itemcount2"]!=null && row["fld_itemcount2"].ToString()!="")
+				{
+					model.fld_itemcount2=int.Parse(row["fld_itemcount2"].ToString());
+				}
+				if(row["fld_itemid3"]!=null && row["fld_itemid3"].ToString()!="")
+				{
+					model.fld_itemid3=int.Parse(row["fld_itemid3"].ToString());
+				}
+				if(row["fld_itemcount3"]!=null && row["fld_itemcount3"].ToString()!="")
+				{
+					model.fld_itemcount3=int.Parse(row["fld_itemcount3"].ToString());
+				}
+				if(row["fld_itemid4"]!=null && row["fld_itemid4"].ToString()!="")
+				{
+					model.fld_itemid4=int.Parse(row["fld_itemid4"].ToString());
+				}
+				if(row["fld_itemcount4"]!=null && row["fld_itemcount4"].ToString()!="")
+				{
+					model.fld_itemcount4=int.Parse(row["fld_itemcount4"].ToString());
+				}
+				if(row["fld_itemid5"]!=null && row["fld_itemid5"].ToString()!="")
+				{
+					model.fld_itemid5=int.Parse(row["fld_itemid5"].ToString());
+				}
+				if(row["fld_itemcount5"]!=null && row["fld_itemcount5"].ToString()!="")
+				{
+					model.fld_itemcount5=int.Parse(row["fld_itemcount5"].ToString());
+				}
+				if(row["fld_itemid6"]!=null && row["fld_itemid6"].ToString()!="")
+				{
+					model.fld_itemid6=int.Parse(row["fld_itemid6"].ToString());
+				}
+				if(row["fld_itemcount6"]!=null && row["fld_itemcount6"].ToString()!="")
+				{
+					model.fld_itemcount6=int.Parse(row["fld_itemcount6"].ToString());
+				}
+				if(row["fld_itemid7"]!=null && row["fld_itemid7"].ToString()!="")
+				{
+					model.fld_itemid7=int.Parse(row["fld_itemid7"].ToString());
+				}
+				if(row["fld_itemcount7"]!=null && row["fld_itemcount7"].ToString()!="")
+				{
+					model.fld_itemcount7=int.Parse(row["fld_itemcount7"].ToString());
+				}
+				if(row["fld_itemid8"]!=null && row["fld_itemid8"].ToString()!="")
+				{
+					model.fld_itemid8=int.Parse(row["fld_itemid8"].ToString());
+				}
+				if(row["fld_itemcount8"]!=null && row["fld_itemcount8"].ToString()!="")
+				{
+					model.fld_itemcount8=int.Parse(row["fld_itemcount8"].ToString());
+				}
+				if(row["fld_itemid9"]!=null && row["fld_itemid9"].ToString()!="")
+				{
+					model.fld_itemid9=int.Parse(row["fld_itemid9"].ToString());
+				}
+				if(row["fld_itemcount9"]!=null && row["fld_itemcount9"].ToString()!="")
+				{
+					model.fld_itemcount9=int.Parse(row["fld_itemcount9"].ToString());
+				}
+				if(row["fld_itemid10"]!=null && row["fld_itemid10"].ToString()!="")
+				{
+					model.fld_itemid10=int.Parse(row["fld_itemid10"].ToString());
+				}
+				if(row["fld_itemcount10"]!=null && row["fld_itemcount10"].ToString()!="")
+				{
+					model.fld_itemcount10=int.Parse(row["fld_itemcount10"].ToString());
+				}
+				if(row["fld_desc"]!=null)
+				{
+					model.fld_desc=row["fld_desc"].ToString();
+				}
+				if(row["fld_lastupdate"]!=null && row["fld_lastupdate"].ToString()!="")
+				{
+					model.fld_lastupdate=DateTime.Parse(row["fld_lastupdate"].ToString());
+				}
+				if(row["fld_deleted"]!=null && row["fld_deleted"].ToString()!="")
+				{
+					model.fld_deleted=int.Parse(row["fld_deleted"].ToString());
+				}
+			}
+			return model;
+		}
+
+		/// <summary>
+		/// 获得数据列表
+		/// </summary>
+		public DataSet GetList(string strWhere)
+		{
+			StringBuilder strSql=new StringBuilder();
+			strSql.Append("select fld_id,fld_lock_device,fld_title,fld_content,fld_itemid1,fld_itemcount1,fld_itemid2,fld_itemcount2,fld_itemid3,fld_itemcount3,fld_itemid4,fld_itemcount4,fld_itemid5,fld_itemcount5,fld_itemid6,fld_itemcount6,fld_itemid7,fld_itemcount7,fld_itemid8,fld_itemcount8,fld_itemid9,fld_itemcount9,fld_itemid10,fld_itemcount10,fld_desc,fld_lastupdate,fld_deleted ");
+			strSql.Append(" FROM tbl_gift_package ");
+			if(strWhere.Trim()!="")
+			{
+				strSql.Append(" where "+strWhere);
+			}
+			return DbHelperMySQL.Query(strSql.ToString());
+		}
+
+		/// <summary>
+		/// 获取记录总数
+		/// </summary>
+		public int GetRecordCount(string strWhere)
+		{
+			StringBuilder strSql=new StringBuilder();
+			strSql.Append("select count(1) FROM tbl_gift_package ");
+			if(strWhere.Trim()!="")
+			{
+				strSql.Append(" where "+strWhere);
+			}
+            object obj = DbHelperMySQL.GetSingle(strSql.ToString());
+			if (obj == null)
+			{
+				return 0;
+			}
+			else
+			{
+				return Convert.ToInt32(obj);
+			}
+		}
+		/// <summary>
+		/// 分页获取数据列表
+		/// </summary>
+		public DataSet GetListByPage(string strWhere, string orderby, int startIndex, int endIndex)
+		{
+			StringBuilder strSql=new StringBuilder();
+			strSql.Append("SELECT * FROM ( ");
+			strSql.Append(" SELECT ROW_NUMBER() OVER (");
+			if (!string.IsNullOrEmpty(orderby.Trim()))
+			{
+				strSql.Append("order by T." + orderby );
+			}
+			else
+			{
+				strSql.Append("order by T.fld_id desc");
+			}
+			strSql.Append(")AS Row, T.*  from tbl_gift_package T ");
+			if (!string.IsNullOrEmpty(strWhere.Trim()))
+			{
+				strSql.Append(" WHERE " + strWhere);
+			}
+			strSql.Append(" ) TT");
+			strSql.AppendFormat(" WHERE TT.Row between {0} and {1}", startIndex, endIndex);
+			return DbHelperMySQL.Query(strSql.ToString());
+		}
+
+		/*
+		/// <summary>
+		/// 分页获取数据列表
+		/// </summary>
+		public DataSet GetList(int PageSize,int PageIndex,string strWhere)
+		{
+			MySqlParameter[] parameters = {
+					new MySqlParameter("@tblName", MySqlDbType.VarChar, 255),
+					new MySqlParameter("@fldName", MySqlDbType.VarChar, 255),
+					new MySqlParameter("@PageSize", MySqlDbType.Int32),
+					new MySqlParameter("@PageIndex", MySqlDbType.Int32),
+					new MySqlParameter("@IsReCount", MySqlDbType.Bit),
+					new MySqlParameter("@OrderType", MySqlDbType.Bit),
+					new MySqlParameter("@strWhere", MySqlDbType.VarChar,1000),
+					};
+			parameters[0].Value = "tbl_gift_package";
+			parameters[1].Value = "fld_id";
+			parameters[2].Value = PageSize;
+			parameters[3].Value = PageIndex;
+			parameters[4].Value = 0;
+			parameters[5].Value = 0;
+			parameters[6].Value = strWhere;	
+			return DbHelperMySQL.RunProcedure("UP_GetRecordByPage",parameters,"ds");
+		}*/
+
+		#endregion  BasicMethod
+		#region  ExtensionMethod
+
+		#endregion  ExtensionMethod
+	}
+}
+
