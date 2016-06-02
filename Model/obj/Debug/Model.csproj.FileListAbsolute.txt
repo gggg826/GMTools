@@ -4,6 +4,5 @@ F:\GameTools\Model\obj\Debug\FengNiao.GMTools.Database.Model.dll
 F:\GameTools\Model\obj\Debug\FengNiao.GMTools.Database.Model.pdb
 C:\Users\liush\Desktop\GMTools\Model\bin\Debug\FengNiao.GMTools.Database.Model.dll
 C:\Users\liush\Desktop\GMTools\Model\bin\Debug\FengNiao.GMTools.Database.Model.pdb
-C:\Users\liush\Desktop\GMTools\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
 C:\Users\liush\Desktop\GMTools\Model\obj\Debug\FengNiao.GMTools.Database.Model.dll
 C:\Users\liush\Desktop\GMTools\Model\obj\Debug\FengNiao.GMTools.Database.Model.pdb

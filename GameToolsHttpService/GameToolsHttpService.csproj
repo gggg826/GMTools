@@ -89,6 +89,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ActivityConfigModule.cs" />
+    <Compile Include="BaiduPushNotice.cs" />
     <Compile Include="CountsConfigModule.cs" />
     <Compile Include="FirstRechargeConfigModule.cs" />
     <Compile Include="LoginRewardsConfig.cs" />

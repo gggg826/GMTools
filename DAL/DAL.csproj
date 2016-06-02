@@ -125,6 +125,7 @@
     </Compile>
     <Compile Include="tbl_activity.cs" />
     <Compile Include="tbl_activity_config.cs" />
+    <Compile Include="tbl_baidupush.cs" />
     <Compile Include="tbl_counts_config.cs" />
     <Compile Include="tbl_first_recharge.cs" />
     <Compile Include="tbl_first_recharge_config.cs" />

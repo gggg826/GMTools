@@ -8,6 +8,5 @@ C:\Users\liush\Desktop\GMTools\DBUtility\bin\Debug\FengNiao.GMTools.Database.DBU
 C:\Users\liush\Desktop\GMTools\DBUtility\bin\Debug\FengNiao.GMTools.Database.DBUtility.pdb
 C:\Users\liush\Desktop\GMTools\DBUtility\bin\Debug\MySql.Data.dll
 C:\Users\liush\Desktop\GMTools\DBUtility\bin\Debug\System.Data.SQLite.DLL
-C:\Users\liush\Desktop\GMTools\DBUtility\obj\Debug\DBUtility.csprojResolveAssemblyReference.cache
 C:\Users\liush\Desktop\GMTools\DBUtility\obj\Debug\FengNiao.GMTools.Database.DBUtility.dll
 C:\Users\liush\Desktop\GMTools\DBUtility\obj\Debug\FengNiao.GMTools.Database.DBUtility.pdb
