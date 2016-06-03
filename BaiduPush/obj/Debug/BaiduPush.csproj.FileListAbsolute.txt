@@ -4,3 +4,9 @@ C:\Users\liush\Desktop\BaiduPush\BaiduPush\bin\Debug\Newtonsoft.Json.dll
 C:\Users\liush\Desktop\BaiduPush\BaiduPush\obj\Debug\BaiduPush.csprojResolveAssemblyReference.cache
 C:\Users\liush\Desktop\BaiduPush\BaiduPush\obj\Debug\BaiduPush.dll
 C:\Users\liush\Desktop\BaiduPush\BaiduPush\obj\Debug\BaiduPush.pdb
+C:\Users\liush\Desktop\GMTools\BaiduPush\bin\Debug\BaiduPush.dll
+C:\Users\liush\Desktop\GMTools\BaiduPush\bin\Debug\BaiduPush.pdb
+C:\Users\liush\Desktop\GMTools\BaiduPush\bin\Debug\Newtonsoft.Json.dll
+C:\Users\liush\Desktop\GMTools\BaiduPush\obj\Debug\BaiduPush.csprojResolveAssemblyReference.cache
+C:\Users\liush\Desktop\GMTools\BaiduPush\obj\Debug\BaiduPush.dll
+C:\Users\liush\Desktop\GMTools\BaiduPush\obj\Debug\BaiduPush.pdb

@@ -52,23 +52,17 @@ namespace GameToolsClient
                 CustomMessageBox.Error(this, "没有选择服务器");
                 return;
             }
-            InitActivityList();
-            //RecommendDetails frmRecommendDetails = new RecommendDetails(serverData);
-            //if (frmRecommendDetails.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            //{
-            //    GetList();
-            //}
+            //InitActivityList();
+            RecommendDetails frmRecommendDetails = new RecommendDetails(serverData);
+            if (frmRecommendDetails.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                GetList();
+            }
         }
 
         private void btnQuery_Click(object sender, EventArgs e)
         {
             GetList();
-
-
-
-            //InitActivityList();
-
-
         }
 
         private void GetList()
@@ -79,7 +73,8 @@ namespace GameToolsClient
                 CustomMessageBox.Error(this, "没有选择服务器");
                 return;
             }
-            InitList(serverData);
+            CurrentServer = serverData;
+            InitActivityList();
         }
 
         private void InitList(FengNiao.GMTools.Database.Model.tbl_server serverData)
@@ -192,6 +187,49 @@ namespace GameToolsClient
 
 
 
+        private void InitActivityList()
+        {
+            string strArgs = GlobalObject.GetModuleAndMethodArgs(HttpModuleType.Activity, HttpMethodType.GetList);
+            CustomWebRequest.Request(GlobalObject.HttpServerIP, strArgs, Encoding.UTF8, GetActivityListCallBack);
+        }
+
+        private void GetActivityListCallBack(object sender, UploadDataCompletedEventArgs e)
+        {
+            if (e.Error == null)
+            {
+                try
+                {
+                    string strContent = Encoding.UTF8.GetString(e.Result);
+                    ResultModel requestResult = FengNiao.GameTools.Json.Serialize.ConvertJsonToObject<ResultModel>(strContent);
+                    if (requestResult.IsSuccess)
+                    {
+                        List<FengNiao.GMTools.Database.Model.tbl_activity> list = FengNiao.GameTools.Json.Serialize.ConvertJsonToObjectList<FengNiao.GMTools.Database.Model.tbl_activity>(requestResult.Content);
+                        GlobalObject.ActivityList = list;
+                        InitRecommadList();
+                    }
+                    else
+                    {
+                        CustomMessageBox.Error(this, string.Format("获取数据失败\r\n{0}", requestResult.Content));
+                    }
+                }
+                catch
+                {
+                    CustomMessageBox.Error(this, "服务器返回的数据无效");
+                }
+            }
+            else
+            {
+                CustomMessageBox.Error(this, "连接服务器异常，请确认是否已经联网");
+            }
+        }
+        
+        
+        
+        
+        
+        
+        
+        
         //初始化GameObject.Recommad
         private void InitRecommadList()
         {
@@ -227,14 +265,15 @@ namespace GameToolsClient
                         GlobalObject.ActivityConfigList = temp;
 
 
+                        InitList(CurrentServer);
 
 
-                        FengNiao.GMTools.Database.Model.tbl_server serverData = tbServer.Tag as FengNiao.GMTools.Database.Model.tbl_server;
-                        RecommendDetails frmRecommendDetails = new RecommendDetails(serverData);
-                        if (frmRecommendDetails.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-                        {
-                            GetList();
-                        }
+                        //FengNiao.GMTools.Database.Model.tbl_server serverData = tbServer.Tag as FengNiao.GMTools.Database.Model.tbl_server;
+                        //RecommendDetails frmRecommendDetails = new RecommendDetails(serverData);
+                        //if (frmRecommendDetails.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                        //{
+                        //    GetList();
+                        //}
 
 
 
@@ -254,49 +293,8 @@ namespace GameToolsClient
                 CustomMessageBox.Error(this, "连接服务器异常，请确认是否已经联网");
             }
         }
-        private void InitActivityList()
-        {
-            //if (GlobalObject.ActivityList != null)
-            //{
-            //    InitRecommadList();
-            //}
-            //else
-            //{
-            string strArgs = GlobalObject.GetModuleAndMethodArgs(HttpModuleType.Activity, HttpMethodType.GetList);
-            //strArgs = string.Format("{0}&Model={1}", strArgs, System.Web.HttpUtility.UrlEncode(strModel, Encoding.UTF8));
-            CustomWebRequest.Request(GlobalObject.HttpServerIP, strArgs, Encoding.UTF8, GetActivityListCallBack);
 
-            //}
-        }
-        private void GetActivityListCallBack(object sender, UploadDataCompletedEventArgs e)
-        {
-            if (e.Error == null)
-            {
-                try
-                {
-                    string strContent = Encoding.UTF8.GetString(e.Result);
-                    ResultModel requestResult = FengNiao.GameTools.Json.Serialize.ConvertJsonToObject<ResultModel>(strContent);
-                    if (requestResult.IsSuccess)
-                    {
-                        List<FengNiao.GMTools.Database.Model.tbl_activity> list = FengNiao.GameTools.Json.Serialize.ConvertJsonToObjectList<FengNiao.GMTools.Database.Model.tbl_activity>(requestResult.Content);
-                        GlobalObject.ActivityList = list;
-                        InitRecommadList();
-                    }
-                    else
-                    {
-                        CustomMessageBox.Error(this, string.Format("获取数据失败\r\n{0}", requestResult.Content));
-                    }
-                }
-                catch
-                {
-                    CustomMessageBox.Error(this, "服务器返回的数据无效");
-                }
-            }
-            else
-            {
-                CustomMessageBox.Error(this, "连接服务器异常，请确认是否已经联网");
-            }
-        }
+
 
     }
 }

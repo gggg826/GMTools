@@ -5,5 +5,6 @@ F:\GameTools\GameToolsWebService\obj\Debug\GameToolsWebService.pdb
 C:\Users\liush\Desktop\GMTools\GameToolsWebService\bin\GameToolsWebService.dll.config
 C:\Users\liush\Desktop\GMTools\GameToolsWebService\bin\GameToolsWebService.dll
 C:\Users\liush\Desktop\GMTools\GameToolsWebService\bin\GameToolsWebService.pdb
+C:\Users\liush\Desktop\GMTools\GameToolsWebService\obj\Debug\GameToolsWebService.csprojResolveAssemblyReference.cache
 C:\Users\liush\Desktop\GMTools\GameToolsWebService\obj\Debug\GameToolsWebService.dll
 C:\Users\liush\Desktop\GMTools\GameToolsWebService\obj\Debug\GameToolsWebService.pdb

@@ -8,6 +8,7 @@ F:\GameTools\Util\obj\Debug\Util.dll
 F:\GameTools\Util\obj\Debug\Util.pdb
 C:\Users\liush\Desktop\GMTools\Util\bin\Debug\Util.dll
 C:\Users\liush\Desktop\GMTools\Util\bin\Debug\Util.pdb
+C:\Users\liush\Desktop\GMTools\Util\obj\Debug\Util.csprojResolveAssemblyReference.cache
 C:\Users\liush\Desktop\GMTools\Util\obj\Debug\FengNiao.GameTools.Util.BaseForm.resources
 C:\Users\liush\Desktop\GMTools\Util\obj\Debug\FengNiao.GameTools.Util.CustomButton.resources
 C:\Users\liush\Desktop\GMTools\Util\obj\Debug\Util.Properties.Resource.resources

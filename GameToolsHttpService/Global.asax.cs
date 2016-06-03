@@ -18,6 +18,7 @@ namespace GameToolsHttpService
 
             pushBaiduNotice = new System.Threading.Thread(BaiduPushNotice.PushBaiduNotice);
             pushBaiduNotice.IsBackground = true;
+            pushBaiduNotice.Name = "通知推送";
             BaiduPushNotice.reloadInfo();
             pushBaiduNotice.Start();
         }

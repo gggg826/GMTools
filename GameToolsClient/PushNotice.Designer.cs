@@ -296,7 +296,7 @@
             this.dtStartTime.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.dtStartTime.TabIndex = 65;
             this.dtStartTime.TimeSelectorTimeFormat = DevComponents.Editors.DateTimeAdv.eTimeSelectorFormat.Time24H;
-            this.dtStartTime.Value = new System.DateTime(2015, 6, 30, 12, 0, 0, 0);
+            this.dtStartTime.Value = new System.DateTime(2016, 6, 3, 12, 0, 0, 0);
             // 
             // labelX5
             // 

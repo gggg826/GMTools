@@ -5,13 +5,15 @@ using FengNiao.GameToolsCommon;
 using GameToolsCommon;
 using Newtonsoft.Json.Linq;
 using System.Xml;
+using System.Drawing;
+
 namespace Test
 {
     class Program
     {
         void JustTest()
         {
-          
+            //System.Drawing.ColorTranslator.FromHtml()
         }
         
         static void Main(string[] args)

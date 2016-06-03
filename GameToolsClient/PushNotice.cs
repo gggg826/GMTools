@@ -22,7 +22,6 @@ namespace GameToolsClient
             this.tbContext.Text = "点击登录游戏领取";
             this.dtStartDate.Value = DateTime.Now.Date;
             this.dtStopDate.Value = DateTime.Now.Date;
-            this.dtStartTime.Value = DateTime.Now;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -79,7 +78,7 @@ namespace GameToolsClient
                     }
                     else
                     {
-                        CustomMessageBox.Error(this, string.Format("获取数据失败\r\n{0}", requestResult.Content));
+                        CustomMessageBox.Error(this, string.Format("获取数据失败\r\n{0}", requestResultModel.Content));
                     }
                 }
                 catch
