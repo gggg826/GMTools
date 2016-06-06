@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<publishData>
+  <publishProfile publishUrl="E:\gm_tools" deleteExistingFiles="True" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="配置文件1" publishMethod="FileSystem" replaceMatchingFiles="False" userName="" savePWD="False" userPWD="" SelectedForPublish="True">
+    <file relUrl="bin/GameToolsCommon.pdb" publishTime="05/25/2016 14:22:08" />
+    <file relUrl="bin/GameToolsHttpService.dll" publishTime="05/26/2016 14:38:30" />
+    <file relUrl="bin/System.Data.SQLite.dll" publishTime="05/18/2016 01:18:06" />
+    <file relUrl="bin/FengNiao.GMTools.Database.DAL.dll" publishTime="05/26/2016 14:38:29" />
+    <file relUrl="bin/Maticsoft.Common.dll" publishTime="05/18/2016 01:18:06" />
+    <file relUrl="bin/GameToolsCommon.dll" publishTime="05/25/2016 14:22:08" />
+    <file relUrl="bin/MySql.Data.dll" publishTime="05/18/2016 01:18:06" />
+    <file relUrl="bin/GMToolsJson.dll" publishTime="05/26/2016 14:38:30" />
+    <file relUrl="GameInterface.ashx" publishTime="05/18/2016 01:18:07" />
+    <file relUrl="bin/FengNiao.GMTools.Database.DBUtility.dll" publishTime="05/25/2016 14:22:08" />
+    <file relUrl="bin/FengNiao.GMTools.Database.Model.dll" publishTime="05/25/2016 17:33:26" />
+    <file relUrl="Scripts/jquery-1.4.1.js" publishTime="05/18/2016 01:18:07" />
+    <file relUrl="bin/Newtonsoft.Json.Net20.dll" publishTime="05/18/2016 01:18:05" />
+    <file relUrl="GetGameData.ashx" publishTime="05/18/2016 01:18:07" />
+    <file relUrl="bin/FengNiao.GMTools.Database.BLL.dll" publishTime="05/26/2016 14:38:29" />
+    <file relUrl="bin/GameToolsHttpService.pdb" publishTime="05/26/2016 14:38:30" />
+    <file relUrl="Scripts/jquery-1.4.1-vsdoc.js" publishTime="05/18/2016 01:18:07" />
+    <file relUrl="Web.config" publishTime="05/26/2016 14:38:30" />
+    <file relUrl="Global.asax" publishTime="05/18/2016 01:18:07" />
+    <file relUrl="Default.aspx" publishTime="05/18/2016 01:18:07" />
+    <file relUrl="Scripts/jquery-1.4.1.min.js" publishTime="05/18/2016 01:18:07" />
+    <file relUrl="bin/GMToolsJson.pdb" publishTime="05/26/2016 14:38:30" />
+  </publishProfile>
+</publishData>

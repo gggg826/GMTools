@@ -1,0 +1,65 @@
+﻿<?xml version="1.0"?>
+<config>
+  <serverIP title="test">http://localhost:14622/GameInterface.ashx</serverIP>
+  <serverIP title="内网">http://10.0.11.33/GameInterface.ashx</serverIP>
+  <serverIP title="外网">http://gm.qt.zhuoyuechenxing.com:8008/GameInterface.ashx</serverIP>
+  <!--serverIP title="内网164">http://10.0.11.26:8088/GameInterface.ashx</serverIP-->
+  <destinationDirectory title="Loading">cache/loading/</destinationDirectory>
+  <destinationDirectory title="大厅弹窗">cache/notice/</destinationDirectory>
+  <!--recommendRank-->
+  <recommendRank id="1">普通推荐</recommendRank>
+  <recommendRank id="2">特别推荐</recommendRank>
+  <recommendRank id="3">SUPER推荐</recommendRank>
+  <!--recommend 与客户端约定-->
+  <recommend id="1">签到</recommend>
+  <recommend id="2">领体力</recommend>
+  <recommend id="3">首充奖励</recommend>
+  <recommend id="4">单充福利</recommend>
+  <recommend id="5">成长计划</recommend>
+  <recommend id="6">VIP特权</recommend>
+  <recommend id="7">月卡奖励</recommend>
+  <recommend id="8">累充送礼</recommend>
+  <recommend id="9">军资金库</recommend>
+  <recommend id="10">限时特惠</recommend>
+  <recommend id="11">登录送礼</recommend>
+  <recommend id="12">7日活动</recommend>
+  <recommend id="13">招财进宝</recommend>
+  <recommend id="14">礼品码兑换</recommend>
+  <recommend id="15">冲级打榜</recommend>
+  <!--quickui CopyFrom: 客户端 UICommon.cs QuickUIType-->
+  <quickui id="0">无</quickui>
+  <quickui id="1">主角信息界面（基础信息标签页）</quickui>
+  <quickui id="2">堡垒进阶界面</quickui>
+  <quickui id="3">主角装备界面</quickui>
+  <quickui id="4">点金弹窗界面</quickui>
+  <quickui id="5">购买体力弹窗界面</quickui>
+  <quickui id="6">充值界面</quickui>
+  <quickui id="7">商城-佣兵</quickui>
+  <quickui id="8">商城-枪械</quickui>
+  <quickui id="9">商城-特惠抢购-折扣区</quickui>
+  <quickui id="10">商城-特惠抢购-VIP礼包</quickui>
+  <quickui id="11">仓库-枪械</quickui>
+  <quickui id="12">仓库-佣兵</quickui>
+  <quickui id="13">佣兵信息(战队佣兵)</quickui>
+  <quickui id="14">闯关-普通难度-自动选择最新关卡</quickui>
+  <quickui id="15">闯关-精英难度-自动选择最新关卡</quickui>
+  <quickui id="16">闯关-并选中指定ID的关卡</quickui>
+  <quickui id="17">活动-佣兵抽卡</quickui>
+  <quickui id="18">活动-枪械抽卡</quickui>
+  <quickui id="19">无尽挑战模式</quickui>
+  <quickui id="20">竞技场</quickui>
+  <quickui id="21">合作模式</quickui>
+  <quickui id="22">战役活动 材料关</quickui>
+  <quickui id="23">商城-消耗品</quickui>
+  <quickui id="24">任务界面</quickui>
+  <quickui id="25">活动-公告</quickui>
+  <quickui id="26">黑市</quickui>
+  <quickui id="27">无限模式黑市</quickui>
+  <quickui id="28">合作模式黑市</quickui>
+  <quickui id="29">活动</quickui>
+  <quickui id="30">阵地之王</quickui>
+  <quickui id="31">仓库 消耗品</quickui>
+  <quickui id="32">仓库 材料界面</quickui>
+  <quickui id="33">仓库 碎片界面</quickui>
+  <quickui id="34">仓库 皮肤界面</quickui>
+</config>
